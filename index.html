@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Fakturo · Propuestas de landing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,600,40&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16211F;--muted:#52605C;--bg:#F7F9F8;--surf:#fff;--brand:#13403A;--brand2:#2E6B60;--sh:0 1px 2px rgba(20,46,42,.06),0 8px 24px rgba(20,46,42,.08)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 Manrope,system-ui,sans-serif}
+header{background:linear-gradient(to bottom right,#0C2B27,#13403A,#2E6B60);color:#fff;padding:48px 16px 56px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+h1{font:600 clamp(28px,4vw,40px)/1.15 Fraunces,serif;font-variation-settings:"SOFT" 40;margin:0 0 8px}
+header p{margin:0;color:rgba(255,255,255,.82);max-width:640px}
+main{margin-top:-28px;padding-bottom:56px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+@media (max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--surf);border-radius:22px;box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column}
+.prev{position:relative;width:100%;aspect-ratio:1440/990;overflow:hidden;background:#EDF2F0}
+.prev iframe{position:absolute;top:0;left:0;width:1440px;height:990px;border:0;transform-origin:0 0;pointer-events:none}
+.body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tag{font:700 12px/1 Manrope;letter-spacing:.8px;text-transform:uppercase;color:var(--brand2)}
+h2{font:700 20px/1.3 Manrope;margin:0}
+.body p{margin:0;color:var(--muted)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:14px;font-weight:700;text-decoration:none}
+.btn.p{background:var(--brand);color:#fff}
+.btn.s{background:#E4EFEB;color:var(--brand)}
+.btn:focus-visible{outline:3px solid #C08552;outline-offset:2px}
+.foot{margin-top:24px;color:var(--muted);font-size:14px}
+.foot a{color:var(--brand)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Dos propuestas para la landing de Fakturo</h1>
+  <p>Borradores locales para elegir una. Nada de esto está publicado en fakturo.cloud.</p>
+</div></header>
+<main><div class="wrap">
+  <div class="grid">
+    <article class="card">
+      <div class="prev"><iframe src="propuesta-a.html" title="Vista previa de la propuesta A" tabindex="-1" loading="lazy"></iframe></div>
+      <div class="body">
+        <span class="tag">Propuesta A · estilo Finzito</span>
+        <h2>La app cobra vida</h2>
+        <p>Preguntas que se escriben solas y un teléfono con cámara de cine que responde cada una en 8 capítulos. Cálida y mágica: ideal para enganchar rápido y para videos cortos.</p>
+        <div class="acts"><a class="btn p" href="propuesta-a.html">Abrir propuesta A</a></div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="prev"><iframe src="propuesta-b.html" title="Vista previa de la propuesta B" tabindex="-1" loading="lazy"></iframe></div>
+      <div class="body">
+        <span class="tag">Propuesta B · hecha para Fakturo</span>
+        <h2>Del trabajo al cobro</h2>
+        <p>La factura es la protagonista: un trabajo real de la cotización al pago, con selector de oficio, modo avión y firma con tu dedo. Más seria y directa, para quien ya cobra.</p>
+        <div class="acts"><a class="btn p" href="propuesta-b.html">Abrir propuesta B</a></div>
+      </div>
+    </article>
+  </div>
+  <p class="foot">Borradores. No es la página oficial de Fakturo: esa es <a href="https://fakturo.cloud">fakturo.cloud</a>.</p>
+</div></main>
+<script>
+(function(){
+  function fit(){ document.querySelectorAll('.prev').forEach(function(p){ var f=p.querySelector('iframe'); f.style.transform='scale('+(p.clientWidth/1440)+')'; }); }
+  addEventListener('resize', fit); fit();
+})();
+</script>
+</body>
+</html>
