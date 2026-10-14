@@ -734,7 +734,11 @@ section[id]{scroll-margin-top:calc(var(--nv) + var(--tb) + 4px)}
 .beta-pill .ms{font-size:17px}
 .hero .beta-pill{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
 .hero-phone{display:flex;flex-direction:column;align-items:center;gap:14px}
-.hero-phone .hp{position:relative}
+.hero-phone .hp{position:relative;width:clamp(260.4px,calc(100vw - 90px),302.4px);aspect-ratio:420/880}
+@media (min-width:960px){ .hero-phone .hp{width:auto;height:clamp(545.6px,calc(100vh - 214px),704px)} }
+.cam-snap{position:absolute;inset:0;transform-origin:0 0;pointer-events:none}
+/* la cifra de "Cobrado" usa la clase .v y heredaba el estado oculto de las vistas */
+.rcob .v{position:static;opacity:1;visibility:visible;transform:none;background:none;overflow:visible;transition:none}
 .hero-cap{font-size:13px;color:rgba(255,255,255,.78);text-align:center;max-width:360px;display:flex;gap:6px;align-items:center;justify-content:center}
 .hero-cap .ms{font-size:16px}
 .hero .stage{overflow:visible;border-radius:0}
@@ -1014,7 +1018,7 @@ section[id]{scroll-margin-top:calc(var(--nv) + var(--tb) + 4px)}
     </div>
     <div class="hero-phone">
       <div class="hp" id="heroPhone" aria-hidden="true"></div>
-      <p class="hero-cap"><span class="ms" aria-hidden="true">info</span><span>Datos de ejemplo: <b data-tx="heroline"></b></span></p>
+      <p class="hero-cap"><span class="ms" aria-hidden="true">info</span><span>Datos de ejemplo: <b data-tx="heroline">Cambio de calentador de paso · Laura López</b></span></p>
     </div>
   </div>
 </section>
@@ -1024,7 +1028,7 @@ section[id]{scroll-margin-top:calc(var(--nv) + var(--tb) + 4px)}
   <div class="wrap">
     <span class="tbar-l"><span class="ms" aria-hidden="true">tune</span><span class="tl-t">Tu oficio</span></span>
     <div class="pills" id="pills" role="radiogroup" aria-label="Oficio de ejemplo"></div>
-    <p class="tsum" aria-live="polite"><span>Datos de ejemplo</span><b data-tx="summary"></b></p>
+    <p class="tsum" aria-live="polite"><span>Datos de ejemplo</span><b data-tx="summary">Laura López · $4,442.80 con IVA</b></p>
   </div>
 </div>
 
@@ -1035,7 +1039,7 @@ section[id]{scroll-margin-top:calc(var(--nv) + var(--tb) + 4px)}
       <span class="tag-demo"><span class="ms" aria-hidden="true">info</span>Datos de ejemplo</span>
       <p class="eyebrow">Del trabajo al cobro</p>
       <h2 class="h2" id="cam-t">Un trabajo, de la cotización al dinero en tu cuenta</h2>
-      <p class="lead">Ocho pasos encadenados: lo que haces en uno alimenta al siguiente. Sigue el caso de <b data-tx="client"></b>, o cambia tu oficio arriba y se rehace con tus números.</p>
+      <p class="lead">Ocho pasos encadenados: lo que haces en uno alimenta al siguiente. Sigue el caso de <b data-tx="client">Laura López</b>, o cambia tu oficio arriba y se rehace con tus números.</p>
     </div>
   </div>
   <div class="mstrip" id="mstrip" aria-label="Pasos"><div class="mstrip-in" id="mstripIn"></div><span class="mprog" id="mprog"></span></div>
@@ -1046,7 +1050,7 @@ section[id]{scroll-margin-top:calc(var(--nv) + var(--tb) + 4px)}
 
         <article class="step" id="paso-1" data-i="0" aria-labelledby="s1">
           <div class="step-h"><button class="node" type="button" data-go="0" aria-label="Ir al paso 1: Cotizas en el lugar">1</button><p class="kick">Paso 1 de 8 · Cotización</p><h3 id="s1">Cotizas en el lugar</h3></div>
-          <p class="tx">Con <strong data-tx="client"></strong> enfrente, eliges al cliente y agregas lo que vas a hacer: <span data-tx="items"></span>. <strong>El total se calcula solo, con IVA.</strong> Es un formulario corto, sin hoja de cálculo.</p>
+          <p class="tx">Con <strong data-tx="client">Laura López</strong> enfrente, eliges al cliente y agregas lo que vas a hacer: <span data-tx="items">cambio de calentador de paso, mano de obra e instalación y conexiones y válvulas</span>. <strong>El total se calcula solo, con IVA.</strong> Es un formulario corto, sin hoja de cálculo.</p>
           <ul class="bl"><li><span class="ms" aria-hidden="true">tag</span>Folio automático: COT-0003, COT-0004…</li><li><span class="ms" aria-hidden="true">inventory_2</span>Conceptos nuevos o “Del catálogo”.</li></ul>
           <div class="step-tools"><button class="btn btn-ghost btn-small rep" type="button" data-rep="0"><span class="ms" aria-hidden="true">replay</span>Repetir</button><span class="planpill"><span class="ms" aria-hidden="true">workspace_premium</span>Pro Solo · gratis en la beta</span></div>
           <p class="sr">En la animación: el formulario “Nueva cotización” se llena con el cliente y los conceptos, el total sube hasta la cifra final y se toca “Crear cotización”.</p>
@@ -1055,7 +1059,7 @@ section[id]{scroll-margin-top:calc(var(--nv) + var(--tb) + 4px)}
 
         <article class="step" id="paso-2" data-i="1" aria-labelledby="s2">
           <div class="step-h"><button class="node" type="button" data-go="1" aria-label="Ir al paso 2: El cliente firma con el dedo">2</button><p class="kick">Paso 2 de 8 · Firma</p><h3 id="s2">El cliente firma con el dedo en tu teléfono</h3></div>
-          <p class="tx">Le pasas el teléfono, <strong data-tx="first"></strong> firma en la pantalla y la cotización queda <strong>Aceptada</strong>. La firma sale en el PDF de la cotización. Más abajo puedes probarla tú.</p>
+          <p class="tx">Le pasas el teléfono, <strong data-tx="first">Laura</strong> firma en la pantalla y la cotización queda <strong>Aceptada</strong>. La firma sale en el PDF de la cotización. Más abajo puedes probarla tú.</p>
           <ul class="bl"><li><span class="ms" aria-hidden="true">draw</span>El trazo se guarda con la cotización.</li><li><span class="ms" aria-hidden="true">event</span>Te avisa cuando está por expirar.</li></ul>
           <div class="step-tools"><button class="btn btn-ghost btn-small rep" type="button" data-rep="1"><span class="ms" aria-hidden="true">replay</span>Repetir</button><span class="planpill"><span class="ms" aria-hidden="true">workspace_premium</span>Pro Solo · gratis en la beta</span></div>
           <p class="sr">En la animación: se abre el menú de la cotización, la pantalla “Firma del cliente” dibuja una firma, se toca “Confirmar firma” y el estado pasa a Aceptada.</p>
@@ -1646,7 +1650,7 @@ var UI = {
       '<div class="p-tot"><div><span>Subtotal</span><span>' + money(sub) + '</span></div><div><span>Impuestos</span><span>' + money(tax) + '</span></div>' +
       '<div class="T" data-ptot><span>TOTAL</span><b>' + money(tot) + '</b></div>' + (d.kind === 'FACTURA' ? '<div class="due">Pagar antes del ' + d.due + '</div>' : '') + '</div>' +
       (d.notes ? '<div class="p-notes"><b>Notas</b>' + d.notes + '</div>' : '') +
-      (d.kind === 'FACTURA' ? '<div class="p-pay"><div><b>Datos de pago</b>Banco: Banco del Bajío (ejemplo)<br>CLABE: 0123 2000 1234 5678 91<br>Transferencia a la CLABE indicada.</div><div class="qr">' + UI.qr(d.seed) + 'Escanea para copiar la CLABE</div></div>' : '') +
+      (d.kind === 'FACTURA' ? '<div class="p-pay"><div><b>Datos de pago</b>Banco: Tu banco (ejemplo)<br>CLABE: 0123 2000 1234 5678 91<br>Transferencia a la CLABE indicada.</div><div class="qr">' + UI.qr(d.seed) + 'Escanea para copiar la CLABE</div></div>' : '') +
       (d.accept ? '<div class="p-accept">' + UI.sig() + '<div class="line">Aceptación del cliente<br>' + d.client + '</div></div>' : '') +
       '<div class="p-foot"><div class="line">' + d.owner + '</div>Generado con Fakturo<br>Documento informativo. No es un CFDI timbrado ante el SAT.</div>' +
       '</div>';
@@ -1788,6 +1792,108 @@ function toast(n, html, cls){
 function hideToast(n){ var tt = $(':scope > .toast', n); if (tt) tt.classList.remove('on'); }
 function overlays(){ return '<div class="toast"></div><span class="tap"></span><div class="scrflash"></div>'; }
 
+/* =========================================================
+   G0 · CÁMARA Y CAMBIOS DE ESCENA (reemplazan los de la base)
+   - La cámara mide el objetivo con la transformación que se ve en ese
+     cuadro (no la de destino), así se puede interrumpir sin saltos.
+   - El acercamiento se calcula por tamaño: el objetivo ocupa ~70 % del
+     ancho, 1.4–2.0x, centrado bajo la barra de estado y sin cortarlo.
+   - will-change solo mientras se mueve, para que el texto se vuelva a
+     rasterizar nítido al terminar.
+   - Stage.snap(): copia congelada de la pantalla que se desvanece encima
+     del contenido nuevo; ningún cambio de escena pasa por pantalla vacía.
+   ========================================================= */
+var CAM_EZ = 'cubic-bezier(.65,0,.35,1)', CAM_IN = 850, CAM_OUT = 800, CAM_BOT = 26;
+Cam.prototype.cur = function(){
+  var m = getComputedStyle(this.inner).transform;
+  if (!m || m === 'none') return {x:0, y:0, z:1};
+  var v = m.slice(m.indexOf('(') + 1, -1).split(',').map(parseFloat);
+  return {x:v[4], y:v[5], z:v[0]};
+};
+Cam.prototype.apply = function(ms){
+  var s = this.s, el = this.inner, self = this;
+  clearTimeout(this.wt);
+  if (ms){
+    el.style.willChange = 'transform';
+    el.style.transition = 'transform ' + ms + 'ms ' + CAM_EZ;
+    this.wt = setTimeout(function(){ el.style.willChange = ''; }, ms + 80);
+  } else { el.style.transition = 'none'; el.style.willChange = ''; }
+  el.style.transform = 'translate(' + s.x.toFixed(1) + 'px,' + s.y.toFixed(1) + 'px) scale(' + s.z.toFixed(3) + ')';
+  this.phone.classList.toggle('zoomed', s.z > 1);
+};
+function camRect(t){
+  if (!t) return null;
+  if (t.length != null && !t.nodeType){
+    var rs = Array.prototype.map.call(t, camRect).filter(Boolean); if (!rs.length) return null;
+    var l = Math.min.apply(0, rs.map(function(r){ return r.left; })), tp = Math.min.apply(0, rs.map(function(r){ return r.top; }));
+    var rt = Math.max.apply(0, rs.map(function(r){ return r.right; })), b = Math.max.apply(0, rs.map(function(r){ return r.bottom; }));
+    return {left:l, top:tp, right:rt, bottom:b, width:rt - l, height:b - tp};
+  }
+  if (t.camText){
+    var w = document.createTreeWalker(t.camText, NodeFilter.SHOW_TEXT), nd, out = [];
+    while ((nd = w.nextNode())){ if (!nd.nodeValue.trim()) continue; var rg = document.createRange(); rg.selectNodeContents(nd); var rr = rg.getBoundingClientRect(); if (rr.width) out.push(rr); }
+    return out.length ? camRect(out) : null;
+  }
+  if (t.nodeType !== 1) return t;
+  return t.getBoundingClientRect();
+}
+function txt(el){ return el ? {camText:el} : null; }
+Cam.prototype.to = function(target, zMax, ms){
+  var r = RM ? null : camRect(target);
+  if (!r || !r.width) return this.home(ms);
+  var W = this.win.clientWidth, H = this.win.clientHeight, c = this.cur();
+  var wr = this.win.getBoundingClientRect(), f = wr.width / W;
+  var ex = ((r.left - wr.left) / f - c.x) / c.z, ey = ((r.top - wr.top) / f - c.y) / c.z;
+  var ew = r.width / f / c.z, eh = r.height / f / c.z, vh = H - SB_H - CAM_BOT;
+  var fit = Math.min(.94 * W / ew, .86 * vh / eh);
+  var z = Math.min(zMax || 2, 2, .7 * W / ew, .78 * vh / eh);
+  if (z < 1.4) z = Math.min(1.4, fit);
+  if (z < 1.25) return this.home(ms);
+  var x = W / 2 - (ex + ew / 2) * z, y = SB_H + vh / 2 - (ey + eh / 2) * z;
+  x = Math.min(0, Math.max(W - W * z, x)); y = Math.min(0, Math.max(H - H * z, y));
+  this.s = {x:x, y:y, z:z}; this.apply(ms || CAM_IN);
+  if (window.__camlog){
+    var sx = ex * z + x, sy = ey * z + y;
+    window.__camlog.push({z:+z.toFixed(2), fill:+(ew * z / W).toFixed(2), w:Math.round(ew), h:Math.round(eh),
+      inside:sx >= 2 && sx + ew * z <= W - 2 && sy >= SB_H && sy + eh * z <= H - 8, host:(this.win.closest('[id]') || {}).id || '', t:Math.round(performance.now())});
+  }
+};
+Cam.prototype.home = function(ms){ this.s = {x:0, y:0, z:1}; this.apply(RM ? 0 : (ms == null ? CAM_OUT : ms)); };
+Cam.prototype.reset = function(ms){ this.home(ms || 0); };
+
+/* Acerca, sostiene para leer y regresa a la vista completa. Devuelve false si la escena se canceló. */
+async function look(E, st, target, hold, zMax){
+  var t = E.tok;
+  st.cam.to(target, zMax);
+  await E.sleep(CAM_IN + (hold || 1500)); if (t !== E.tok) return false;
+  st.cam.home();
+  await E.sleep(CAM_OUT + 200);
+  return t === E.tok;
+}
+
+function inView(el){ var r = el.getBoundingClientRect(); return r.width > 0 && r.bottom > 0 && r.top < innerHeight; }
+Stage.prototype.snap = function(){
+  if (RM || !this.slot.firstChild || !inView(this.el)) return;
+  var now = performance.now(); if (now - (this.snapAt || 0) < 120) return; this.snapAt = now;
+  var inner = this.cam.inner, c = inner.cloneNode(true);
+  c.classList.add('cam-snap', 'noanim');
+  c.style.transition = 'none'; c.style.willChange = 'opacity'; c.style.transform = getComputedStyle(inner).transform;
+  inner.parentNode.appendChild(c);
+  var olds = $$('.cam-snap', inner.parentNode); if (olds.length > 2) olds[0].remove();
+  var a = c.animate([{opacity:1}, {opacity:0}], {duration:380, easing:'cubic-bezier(.4,0,.2,1)', fill:'forwards'});
+  a.finished.then(function(){ c.remove(); }, function(){ c.remove(); });
+};
+
+/* Igual que la base, pero el bloqueo de animaciones va en las vistas y no en el
+   contenedor: quitar .noanim del contenedor reiniciaba su animación de entrada. */
+function showNow(n, name){
+  var kids = $$(':scope > *', n);
+  kids.forEach(function(k){ k.classList.add('noanim'); if (k.classList.contains('v')) k.classList.remove('on', 'back'); });
+  var v = $(':scope > .v[data-v="' + name + '"]', n); v.classList.add('on');
+  n.dataset.cur = name; syncPhone(n, v);
+  reflow(n); kids.forEach(function(k){ k.classList.remove('noanim'); });
+}
+
 
 /* =========================================================
    G1 · OFICIOS (datos de ejemplo) y piezas de UI que dependen de ellos
@@ -1881,7 +1987,7 @@ UI.pdf = function(d){
     '<div class="p-tot" data-pa="tot"><div><span>Subtotal</span><span>' + money(sub) + '</span></div><div><span>Impuestos</span><span>' + money(tax) + '</span></div>' +
     '<div class="T" data-ptot><span>TOTAL</span><b>' + money(tot) + '</b></div>' + (F ? '<div class="due">Pagar antes del ' + d.due + '</div>' : '') + '</div>' +
     (d.notes ? '<div class="p-notes"><b>Notas</b>' + d.notes + '</div>' : '') +
-    (F ? '<div class="p-pay" data-pa="pay"><div><b>Datos de pago</b>Banco: Banco del Bajío (ejemplo)<br>CLABE: 0123 2000 1234 5678 91<br>Transferencia a la CLABE indicada.</div><div class="qr">' + UI.qr(d.seed) + 'Escanea para copiar la CLABE</div></div>' : '') +
+    (F ? '<div class="p-pay" data-pa="pay"><div><b>Datos de pago</b>Banco: Tu banco (ejemplo)<br>CLABE: 0123 2000 1234 5678 91<br>Transferencia a la CLABE indicada.</div><div class="qr">' + UI.qr(d.seed) + 'Escanea para copiar la CLABE</div></div>' : '') +
     acc +
     '<div class="p-foot" data-pa="foot"><div class="line">' + d.owner + '</div>Generado con Fakturo<br>Documento informativo. No es un CFDI timbrado ante el SAT.</div>' +
     '</div>';
@@ -2045,16 +2151,11 @@ var SC_COT = {
     }
     var tot = $('[data-tot]', n);
     countIn(E, tot, TD.sub * 1.16 * .6, TD.tot, 700);
-    st.cam.to($('[data-totbox]', n), 1.8, 800);
-    await E.sleep(2300); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
-    await E.sleep(800); if (t !== E.tok) return;
+    if (!await look(E, st, [$('[data-sub]', n), $('[data-tax]', n), tot], 1500)) return;
     await tap(E, n, $('[data-create]', n)); if (t !== E.tok) return;
     show(n, 'det', 'fade');
     await E.sleep(900); if (t !== E.tok) return;
-    st.cam.to($('[data-v="det"] [data-total]', n), 1.8, 800);
-    await E.sleep(1800); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
+    await look(E, st, txt($('[data-v="det"] [data-total]', n)), 1500);
   }
 };
 
@@ -2080,12 +2181,12 @@ var SC_FIRMA = {
     $('.menu[data-menu]', d).classList.remove('on');
     show(n, 'sig');
     await E.sleep(800); if (t !== E.tok) return;
-    st.cam.to($('[data-can]', n), 1.45, 800);
-    await E.sleep(900); if (t !== E.tok) return;
+    st.cam.to(path);
+    await E.sleep(CAM_IN + 100); if (t !== E.tok) return;
     await E.tween(2600, function(p){ path.style.strokeDashoffset = (L * (1 - p)).toFixed(1); }, easeInOut); if (t !== E.tok) return;
-    await E.sleep(600); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
-    await E.sleep(800); if (t !== E.tok) return;
+    await E.sleep(1200); if (t !== E.tok) return;
+    st.cam.home();
+    await E.sleep(CAM_OUT + 200); if (t !== E.tok) return;
     await tap(E, n, $('[data-confirm]', n)); if (t !== E.tok) return;
     estAccepted(n);
     show(n, 'det', 'back');
@@ -2096,9 +2197,7 @@ var SC_FIRMA = {
     hideToast(n);
     $('[data-scroll]', n).style.transform = 'translateY(-170px)'; $('[data-hbar]', n).classList.add('on');
     await E.sleep(900); if (t !== E.tok) return;
-    st.cam.to($('.sigimg', d), 1.6, 800);
-    await E.sleep(1800); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
+    await look(E, st, $('.sigimg .sigpath', d), 1500);
   }
 };
 
@@ -2148,15 +2247,15 @@ var SC_HORAS = {
     $('[data-tbody]', n).innerHTML = '<div style="font-weight:700;font-size:16px;margin-top:8px">' + TD.client + '</div><div style="font-size:12px;opacity:.85">' + TD.h1.d + '</div><div class="clock" data-clock>00:00:00</div>';
     btn.innerHTML = UI.ic('stop_circle', '', true) + 'Detener'; btn.style.color = 'var(--sage-ink)';
     var clock = $('[data-clock]', n);
-    st.cam.to(tm, 1.6, 800);
+    st.cam.to(txt($('[data-tbody]', n)));
     await E.tween(3600, function(p){
       var s = Math.round(5400 * p), hh = Math.floor(s / 3600), mm = Math.floor(s / 60) % 60, ss = s % 60;
       clock.textContent = String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0') + ':' + String(ss).padStart(2, '0');
     }, function(p){ return p < .15 ? p * p / .3 : p; }); if (t !== E.tok) return;
     clock.textContent = '01:30:00';
-    await E.sleep(500); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
-    await E.sleep(700); if (t !== E.tok) return;
+    await E.sleep(1200); if (t !== E.tok) return;
+    st.cam.home();
+    await E.sleep(CAM_OUT + 200); if (t !== E.tok) return;
     await tap(E, n, btn); if (t !== E.tok) return;
     tm.classList.remove('run'); $('[data-tico]', n).textContent = 'play_circle';
     $('[data-tbody]', n).innerHTML = '<div style="font-weight:700;font-size:18px;margin-top:8px">Listo para trabajar</div><div style="font-size:13px;opacity:.8">Toca Iniciar para grabar</div>';
@@ -2165,10 +2264,7 @@ var SC_HORAS = {
     toast(n, 'Sesión detenida: 01:30:00 · ' + money(1.5 * TD.h1.r));
     await E.sleep(1800); if (t !== E.tok) return;
     hideToast(n);
-    st.cam.to($('[data-unb]', n), 1.6, 800);
-    await E.sleep(1700); if (t !== E.tok) return;
-    st.cam.to(null, 1, 600);
-    await E.sleep(650); if (t !== E.tok) return;
+    if (!await look(E, st, txt($('[data-unb] > div', n)), 1400)) return;
     await tap(E, n, $('[data-bill]', n)); if (t !== E.tok) return;
     $('[data-v="time"] [data-scrim]', n).classList.add('on'); $('[data-v="time"] [data-sheet]', n).classList.add('on');
     await E.sleep(1300); if (t !== E.tok) return;
@@ -2176,9 +2272,7 @@ var SC_HORAS = {
     show(n, 'inv');
     await E.sleep(900); if (t !== E.tok) return;
     toast(n, UI.ic('check_circle', '', true) + '3 sesiones marcadas como facturadas', 'ok');
-    st.cam.to($('[data-items]', n), 1.5, 800);
-    await E.sleep(2000); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
+    await look(E, st, $$('[data-v="inv"] [data-items] .itemcard > .field .val', n).map(txt), 1500);
   }
 };
 
@@ -2235,7 +2329,7 @@ var SC_TICKET = {
     showNow(n, 'cam');
     st.props.innerHTML = '<div class="tkphys" style="position:absolute;left:0;top:0;transform:translate(-50%,-50%) scale(var(--k)) rotate(-4deg);transition:opacity 500ms">' + UI.ticket() + '</div>';
     st.el.classList.add('is-table');
-    st.ppos.style.transition = 'none';
+    st.ppos.style.transition = !RM && inView(st.el) ? 'transform 650ms cubic-bezier(.55,0,.75,.3)' : 'none';
     st.ppos.style.transform = 'translateY(' + (this.OFF * st.k) + 'px)';
     $('[data-ghost]', n).style.transform = 'translate(-50%,-50%) translateY(' + (-this.OFF) + 'px) rotate(-4deg)';
   },
@@ -2244,6 +2338,7 @@ var SC_TICKET = {
     if (!st.el.classList.contains('is-table')) this.pre(n, st);
     var phys = $('.tkphys', st.props), ghost = $('[data-ghost]', n), k = st.k, OFF = this.OFF;
     await E.sleep(1300); if (t !== E.tok) return;
+    st.ppos.style.transition = 'none';
     await E.tween(1300, function(p){
       var off = OFF * (1 - p);
       st.ppos.style.transform = 'translateY(' + (off * k).toFixed(1) + 'px)';
@@ -2259,8 +2354,7 @@ var SC_TICKET = {
     await E.sleep(700); if (t !== E.tok) return;
     $(':scope > .scrflash', n).classList.remove('go'); st.el.querySelector('.stage-flash').classList.remove('go');
     st.props.innerHTML = '';
-    st.cam.to($('[data-shot] [data-k="fecha"]', n), 1.4, 900);
-    await E.sleep(1000); if (t !== E.tok) return;
+    await E.sleep(300); if (t !== E.tok) return;
     var wrap = $('[data-shot] .tkw', n); placeMarks(wrap);
     var keys = ['com', 'fecha', 'total'];
     for (var i = 0; i < keys.length; i++){
@@ -2269,10 +2363,7 @@ var SC_TICKET = {
       $('[data-ml="' + keys[i] + '"]', wrap).classList.add('on'); Snd.play('tick');
       await E.sleep(650); if (t !== E.tok) return;
     }
-    st.cam.to($('[data-m="total"]', wrap), 2.1, 850);
-    await E.sleep(2100); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
-    await E.sleep(800); if (t !== E.tok) return;
+    if (!await look(E, st, [$('[data-m="total"]', wrap), $('[data-ml="total"]', wrap)], 1600)) return;
     show(n, 'form');
     await E.sleep(1300); if (t !== E.tok) return;
     var f = $('[data-v="form"]', n);
@@ -2285,15 +2376,13 @@ var SC_TICKET = {
     }
     toast(n, UI.ic('document_scanner') + TD.prov + ' · ' + money(TD.tk.total) + ' · ' + TD.tk.cat);
     await E.sleep(900); if (t !== E.tok) return;
-    st.cam.to($('[data-g="m"]', f), 1.7, 800);
-    await E.sleep(1800); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
+    if (!await look(E, st, txt($('[data-g="m"]', f)), 1500)) return;
     $$('[data-g]', f).forEach(function(x){ x.classList.remove('got'); });
   }
 };
 
 /* Paso 3: elige horas o ticket (por oficio, y con interruptor) */
-var S3 = 'horas';
+var S3 = TD.mode;
 function cur3(){ return S3 === 'horas' ? SC_HORAS : SC_TICKET; }
 var SC_3 = {
   tpl: function(){ return cur3().tpl(); },
@@ -2314,11 +2403,7 @@ var SC_CONV = {
   play: async function(n, E, st){
     var t = E.tok, d = $('[data-v="det"]', n);
     this.prep(n); showNow(n, 'det');
-    await E.sleep(1300); if (t !== E.tok) return;
-    st.cam.to($('[data-conv]', d), 1.6, 800);
-    await E.sleep(1400); if (t !== E.tok) return;
-    st.cam.to(null, 1, 600);
-    await E.sleep(700); if (t !== E.tok) return;
+    await E.sleep(1800); if (t !== E.tok) return;
     await tap(E, n, $('[data-conv]', d)); if (t !== E.tok) return;
     $('[data-scrim]', d).classList.add('on'); $('[data-dlg]', d).classList.add('on');
     await E.sleep(1300); if (t !== E.tok) return;
@@ -2329,9 +2414,7 @@ var SC_CONV = {
     show(n, 'inv', 'fade');
     await E.sleep(1100); if (t !== E.tok) return;
     hideToast(n);
-    st.cam.to($('[data-v="inv"] [data-total]', n), 1.8, 800);
-    await E.sleep(1900); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
+    await look(E, st, txt($('[data-v="inv"] [data-total]', n)), 1500);
   }
 };
 
@@ -2356,19 +2439,14 @@ var SC_ENVIO = {
     await E.sleep(800); if (t !== E.tok) return;
     shareBubble(n); Snd.play('sent');
     await E.sleep(700); if (t !== E.tok) return;
-    st.cam.to($('[data-docbub]', n), 1.5, 800);
-    await E.sleep(2300); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
-    await E.sleep(800); if (t !== E.tok) return;
+    if (!await look(E, st, $('[data-docbub]', n), 1700)) return;
     setSent(d);
     show(n, 'det', 'back');
     await E.sleep(500); if (t !== E.tok) return;
     sentToast(n);
     $('[data-badge] .badge', d).classList.add('stamp');
     await E.sleep(1500); if (t !== E.tok) return;
-    st.cam.to($('[data-badge]', d), 1.6, 800);
-    await E.sleep(1500); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
+    await look(E, st, [$('[data-badge] .badge', d), txt($('[data-total]', d))], 1400);
   }
 };
 
@@ -2391,10 +2469,7 @@ var SC_AVISO = {
     await E.sleep(900); if (t !== E.tok) return;
     $('[data-notif]', n).classList.add('on'); Snd.play('notif');
     await E.sleep(600); if (t !== E.tok) return;
-    st.cam.to($('[data-notif]', n), 1.6, 800);
-    await E.sleep(1900); if (t !== E.tok) return;
-    st.cam.to(null, 1, 600);
-    await E.sleep(650); if (t !== E.tok) return;
+    if (!await look(E, st, txt($('[data-notif]', n)), 1500)) return;
     await tap(E, n, $('[data-notif]', n)); if (t !== E.tok) return;
     show(n, 'det', 'fade');
     await E.sleep(1400); if (t !== E.tok) return;
@@ -2402,17 +2477,10 @@ var SC_AVISO = {
     await tap(E, n, $('[data-remind]', det)); if (t !== E.tok) return;
     show(n, 'wa');
     await E.sleep(800); if (t !== E.tok) return;
-    st.cam.to($('.wa-comp', n), 1.75, 850);
-    await E.sleep(2900); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
-    await E.sleep(800); if (t !== E.tok) return;
+    if (!await look(E, st, txt($('[data-watx]', n)), 1800)) return;
     await tap(E, n, $('[data-wasend]', n)); if (t !== E.tok) return;
     this.sent(n); Snd.play('sent');
     $$('.bub.me', n).forEach(function(b){ b.classList.add('pop'); });
-    await E.sleep(1800); if (t !== E.tok) return;
-    st.cam.to($('.bub.me:last-child', n), 1.5, 800);
-    await E.sleep(1800); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
   }
 };
 
@@ -2447,9 +2515,7 @@ var SC_PAGO = {
     $('[data-cel]', det).classList.add('on'); Snd.play('ding');
     await E.sleep(1500); if (t !== E.tok) return;
     $('[data-cel]', det).classList.remove('on');
-    st.cam.to($('[data-acts]', det), 1.6, 800);
-    await E.sleep(1800); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
+    await look(E, st, [$('[data-badge] .badge', det), txt($('[data-total]', det))], 1500);
   }
 };
 
@@ -2483,10 +2549,7 @@ var SC_REP = {
     await countIn(E, $('[data-cobv]', n), 0, TD.rIN, 1400); if (t !== E.tok) return;
     this.bars(n, '[data-pane="i"]');
     await E.sleep(900); if (t !== E.tok) return;
-    st.cam.to($('[data-cob]', n), 1.6, 800);
-    await E.sleep(2300); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
-    await E.sleep(800); if (t !== E.tok) return;
+    if (!await look(E, st, [txt($('[data-cob] .k', n)), txt($('[data-cobv]', n))], 1600)) return;
     $('[data-scroll]', n).style.transform = 'translateY(-150px)'; $('[data-hbar]', n).classList.add('on');
     await E.sleep(1800); if (t !== E.tok) return;
     $('[data-scroll]', n).style.transform = '';
@@ -2533,13 +2596,14 @@ var Hero = {
     this.node = h('<div class="scr"></div>'); this.stage.slot.appendChild(this.node);
     this.render();
     this.fit();
-    this.E.onClear.push(function(){ self.stage.cam.reset(300); self.flies.forEach(function(f){ f.remove(); }); self.flies = []; });
+    this.E.onClear.push(function(){ self.stage.cam.reset(300); self.flies.forEach(function(f){ f.unfollow(); f.remove(); }); self.flies = []; });
     if (RM) return;
     new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting){ if (!self.running) self.loop(); } else if (self.running){ self.E.clearT(); self.running = false; } });
+      es.forEach(function(e){ if (e.isIntersecting){ if (!self.running) self.loop(); } else if (self.running){ self.E.clearT(); self.running = false; self.render(); } });
     }, {threshold: .15}).observe($('#inicio'));
   },
   render: function(){
+    this.stage.snap();
     this.node.innerHTML = this.tpl(); showNow(this.node, 'pdf');
     if (RM) this.final();
   },
@@ -2553,6 +2617,11 @@ var Hero = {
     var paper = $('.paper', n), r = paper.getBoundingClientRect(), s0 = r.width / 612;
     var clone = document.createElement('div'); clone.className = 'fly-doc';
     var pc = paper.cloneNode(true); pc.classList.remove('assemble'); pc.style.visibility = ''; clone.appendChild(pc);
+    /* coordenadas de página: el documento sigue al teléfono aunque se haga scroll durante el vuelo */
+    function follow(){ clone.style.translate = (-scrollX).toFixed(1) + 'px ' + (-scrollY).toFixed(1) + 'px'; }
+    follow(); addEventListener('scroll', follow, {passive: true});
+    clone.unfollow = function(){ removeEventListener('scroll', follow); };
+    r = {left:r.left + scrollX, top:r.top + scrollY};
     document.body.appendChild(clone); this.flies.push(clone);
     paper.style.visibility = 'hidden';
     var ez = 'cubic-bezier(.645,.045,.355,1)';
@@ -2564,6 +2633,7 @@ var Hero = {
     $('[data-wabody]', n).insertAdjacentHTML('beforeend', UI.docBubble(docOf('FACTURA', {st:'Enviada', issue:'14/10/2026', due:'13/11/2026', folio:'FAC-0014'}), 'Hola ' + TD.first + ', te envío la factura FAC-0014 por ' + money(TD.tot) + '.', '10:12', 'hid'));
     await E.sleep(120); if (t !== E.tok) return;
     var bub = $('[data-docbub]', n), dm = $('[data-dm]', n).getBoundingClientRect(), s1 = dm.width / 612;
+    dm = {left:dm.left + scrollX, top:dm.top + scrollY, width:dm.width, height:dm.height};
     var crop = Math.max(0, 100 * (1 - dm.height / s1 / 792));
     await clone.animate([
       {transform:lift, clipPath:'inset(0 0 0% 0)'},
@@ -2571,7 +2641,7 @@ var Hero = {
     ], {duration:1000, easing:ez, fill:'forwards'}).finished.catch(function(){}); if (t !== E.tok) return;
     bub.classList.remove('hid'); bub.classList.add('pop'); Snd.play('sent');
     await E.sleep(160); if (t !== E.tok) return;
-    clone.remove(); this.flies = this.flies.filter(function(f){ return f !== clone; });
+    clone.unfollow(); clone.remove(); this.flies = this.flies.filter(function(f){ return f !== clone; });
   },
   loop: async function(){
     var E = this.E, t = E.tok, n = this.node, st = this.stage, self = this, first = true;
@@ -2602,18 +2672,17 @@ var Hero = {
       await E.sleep(600); if (t !== E.tok) return;
       var tb = $('[data-ptot] b', n); tb.textContent = money(0);
       this.pa(n, 'tot');
-      st.cam.to($('[data-ptot]', n), 1.9, 800);
+      st.cam.to($('[data-pa="tot"]', n));
       await E.sleep(700); if (t !== E.tok) return;
       await countIn(E, tb, 0, TD.tot, 1400); if (t !== E.tok) return;
       await E.sleep(1300); if (t !== E.tok) return;
-      st.cam.to(null, 1, 700);
-      await E.sleep(800); if (t !== E.tok) return;
+      st.cam.home();
+      await E.sleep(CAM_OUT + 100); if (t !== E.tok) return;
       this.pa(n, 'pay');
-      st.cam.to($('[data-pa="pay"]', n), 1.8, 800);
-      await E.sleep(2200); if (t !== E.tok) return;
+      await E.sleep(700); if (t !== E.tok) return;
+      if (!await look(E, st, $('[data-pa="pay"] > div', n), 1500)) return;
       this.pa(n, 'foot');
-      st.cam.to(null, 1, 700);
-      await E.sleep(1100); if (t !== E.tok) return;
+      await E.sleep(600); if (t !== E.tok) return;
       var gen = $('[data-gen]', n); gen.classList.add('on');
       await E.sleep(1300); if (t !== E.tok) return;
       gen.classList.remove('on');
@@ -2636,7 +2705,7 @@ function fitAll(){
 }
 function mount(i, st){
   var sc = SCENES[i];
-  st.clean(); sc.reset(st);
+  st.snap(); st.clean(); sc.reset(st);
   st.slot.innerHTML = ''; st.slot.appendChild(sc.node);
 }
 function finalInto(i, st){ var sc = SCENES[i]; mount(i, st); sc.fin(sc.node, st); }
@@ -2654,7 +2723,8 @@ function restoreSb(st){
 }
 function showPoster(i){
   var st = CH.mob[i]; if (!st || !st.poster) return;
-  st.clean(); st.slot.innerHTML = ''; st.slot.appendChild(st.poster); restoreSb(st);
+  if (st.slot.firstChild === st.poster) return;
+  st.snap(); st.clean(); st.slot.innerHTML = ''; st.slot.appendChild(st.poster); restoreSb(st);
 }
 function updIndicators(i){
   $$('.node').forEach(function(b, j){
@@ -2669,6 +2739,7 @@ function updIndicators(i){
   if (act){ var ol = $('#mstripIn'); ol.scrollTo({left: act.offsetLeft - ol.clientWidth / 2 + act.offsetWidth / 2, behavior: RM ? 'auto' : 'smooth'}); }
 }
 function activate(i, force){
+  CH.cand = i; clearTimeout(CH.wt);
   if (i === CH.cur && !force) return;
   var prev = CH.cur;
   CH.cur = i; CH.E.clearT(); updIndicators(i);
@@ -2680,7 +2751,6 @@ function activate(i, force){
 async function run(i){
   var E = CH.E, t = E.tok, sc = SCENES[i], st = stageFor(i);
   mount(i, st);
-  sc.node.classList.remove('enter'); reflow(sc.node); if (DESK.matches) sc.node.classList.add('enter');
   sc.pre(sc.node, st);
   await E.sleep(450); if (t !== E.tok) return;
   await sc.play(sc.node, E, st);
@@ -2726,7 +2796,7 @@ function setupSteps(){
   layout();
   DESK.addEventListener('change', function(){ CH.E.clearT(); layout(); if (CH.cur >= 0) activate(CH.cur, true); });
   new IntersectionObserver(function(es){
-    es.forEach(function(e){ if (!e.isIntersecting && CH.cur >= 0){ CH.E.clearT(); if (!DESK.matches) showPoster(CH.cur); CH.cur = -1; } });
+    es.forEach(function(e){ if (!e.isIntersecting){ CH.cand = -1; clearTimeout(CH.wt); if (CH.cur >= 0){ CH.E.clearT(); if (!DESK.matches) showPoster(CH.cur); CH.cur = -1; } } });
   }, {threshold: 0}).observe($('#tsteps'));
 }
 function layout(){
@@ -2734,11 +2804,30 @@ function layout(){
   if (DESK.matches){ finalInto(Math.max(CH.cur, 0), CH.desk); }
   else CH.list.forEach(function(c, i){ buildPoster(i); });
   if (CH.io) CH.io.disconnect();
-  CH.io = new IntersectionObserver(function(es){
-    if (CH.lock) return;
-    es.forEach(function(e){ if (e.isIntersecting) activate(+e.target.dataset.i); });
-  }, {rootMargin: DESK.matches ? '-50% 0px -50% 0px' : '-60% 0px -40% 0px'});
+  CH.io = new IntersectionObserver(function(){ wantStep(); }, {rootMargin: DESK.matches ? '-50% 0px -50% 0px' : '-60% 0px -40% 0px'});
   CH.list.forEach(function(c){ CH.io.observe(c); });
+}
+/* Paso bajo la línea, con histéresis: el paso actual se conserva hasta que la
+   línea entra HYS px en el siguiente, y el cambio espera a que el paso candidato
+   dure 140 ms. Así el scroll rápido no reinicia ocho escenas y el borde entre
+   pasos no alterna activo/inactivo. */
+var HYS = 32;
+function lineStep(){
+  var y = innerHeight * (DESK.matches ? .5 : .6), hit = -1;
+  CH.list.forEach(function(c, i){ var r = c.getBoundingClientRect(); if (r.top <= y && r.bottom > y) hit = i; });
+  if (hit >= 0 && CH.cur >= 0 && hit !== CH.cur){
+    var r = CH.list[CH.cur].getBoundingClientRect();
+    if (r.top - HYS <= y && r.bottom + HYS > y) return CH.cur;
+  }
+  return hit;
+}
+function wantStep(){
+  if (CH.lock || !CH.list.length) return;
+  var i = lineStep();
+  if (i === CH.cand) return;
+  CH.cand = i; clearTimeout(CH.wt);
+  if (i < 0 || i === CH.cur) return;
+  CH.wt = setTimeout(function(){ if (!CH.lock && CH.cand === i) activate(i); }, 140);
 }
 function goTo(i){
   var el = CH.list[i]; if (!el) return;
@@ -2804,7 +2893,7 @@ var OFF = {
     this.E.onClear.push(function(){ self.stage.cam.reset(300); });
     $('#airSw').addEventListener('click', function(){ self.toggle(!self.air); });
   },
-  render: function(){ this.node.innerHTML = this.tpl(); var th = $('[data-thumb]', this.node); th.style.transform = 'translate(-50%,-50%) scale(.6) rotate(-4deg)'; th.style.top = '205px'; showNow(this.node, this.state === 'sent' ? 'det' : (this.state === 'pending' ? 'det' : 'list')); this.apply(); },
+  render: function(){ this.stage.snap(); this.node.innerHTML = this.tpl(); var th = $('[data-thumb]', this.node); th.style.transform = 'translate(-50%,-50%) scale(.6) rotate(-4deg)'; th.style.top = '205px'; showNow(this.node, this.state === 'sent' ? 'det' : (this.state === 'pending' ? 'det' : 'list')); this.apply(); },
   ck: function(k, v){ var li = $('[data-ck="' + k + '"]'); li.classList.remove('ok', 'wait'); if (v) li.classList.add(v); },
   resetChecks: function(){ var s = this; ['fac', 'pdf', 'scan', 'send'].forEach(function(k){ s.ck(k, null); }); },
   apply: function(){
@@ -2847,10 +2936,7 @@ var OFF = {
     await tap(E, n, $('.fab', n)); if (t !== E.tok) return;
     show(n, 'form'); this.end(n);
     await E.sleep(1300); if (t !== E.tok) return;
-    st.cam.to($('[data-v="form"] .totbox', n), 1.7, 800);
-    await E.sleep(1600); if (t !== E.tok) return;
-    st.cam.to(null, 1, 600);
-    await E.sleep(700); if (t !== E.tok) return;
+    if (!await look(E, st, $$('[data-v="form"] .totbox b', n), 1400)) return;
     await tap(E, n, $('[data-create]', n)); if (t !== E.tok) return;
     $('[data-newcard]', n).style.display = '';
     show(n, 'list'); this.ck('fac', 'ok'); Snd.play('tick');
@@ -2867,10 +2953,10 @@ var OFF = {
     await tap(E, n, $('[data-pdf]', d)); if (t !== E.tok) return;
     show(n, 'pdf');
     await E.sleep(800); if (t !== E.tok) return;
-    st.cam.to($('[data-v="pdf"] [data-ptot]', n), 1.9, 800);
-    await E.sleep(1700); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700); this.ck('pdf', 'ok'); Snd.play('tick');
-    await E.sleep(900); if (t !== E.tok) return;
+    st.cam.to($('[data-v="pdf"] [data-pa="tot"]', n));
+    await E.sleep(CAM_IN + 1400); if (t !== E.tok) return;
+    st.cam.home(); this.ck('pdf', 'ok'); Snd.play('tick');
+    await E.sleep(CAM_OUT + 300); if (t !== E.tok) return;
     show(n, 'gasto', 'fade');
     var g = $('[data-v="gasto"]', n);
     await E.sleep(1300); if (t !== E.tok) return;
@@ -2950,7 +3036,7 @@ var PRIV = {
     $('#bioBtn').addEventListener('click', function(){ self.run('bio'); });
     $('#lockBtn').addEventListener('click', function(){ self.relock(); });
   },
-  render: function(){ this.node.innerHTML = this.tpl(); showNow(this.node, this.locked ? 'pin' : 'set'); },
+  render: function(){ this.stage.snap(); this.node.innerHTML = this.tpl(); showNow(this.node, this.locked ? 'pin' : 'set'); },
   refresh: function(){ this.E.clearT(); this.render(); },
   diag: function(open){
     this.locked = !open;
@@ -2987,9 +3073,8 @@ var PRIV = {
     await E.sleep(1700); if (t !== E.tok) return;
     show(n, 'set');
     await E.sleep(1100); if (t !== E.tok) return;
-    st.cam.to($('[data-bsw]', n).parentNode, 1.5, 800);
-    await E.sleep(1900); if (t !== E.tok) return;
-    st.cam.to(null, 1, 700);
+    var bsw = $('[data-bsw]', n);
+    await look(E, st, [txt($('.d', bsw.parentNode)), bsw], 1500);
   }
 };
 
@@ -3239,7 +3324,7 @@ function boot(){
   var rt = 0;
   addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ fitAll(); }, 150); });
   var sp = 0;
-  addEventListener('scroll', function(){ if (!sp) sp = requestAnimationFrame(function(){ sp = 0; railProgress(); }); }, {passive: true});
+  addEventListener('scroll', function(){ if (!sp) sp = requestAnimationFrame(function(){ sp = 0; railProgress(); wantStep(); }); }, {passive: true});
   railProgress();
   if (document.fonts) document.fonts.ready.then(function(){ fitAll(); });
 }

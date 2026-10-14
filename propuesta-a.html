@@ -1567,7 +1567,7 @@ var UI = {
       '<div class="p-tot"><div><span>Subtotal</span><span>' + money(sub) + '</span></div><div><span>Impuestos</span><span>' + money(tax) + '</span></div>' +
       '<div class="T" data-ptot><span>TOTAL</span><b>' + money(tot) + '</b></div>' + (d.kind === 'FACTURA' ? '<div class="due">Pagar antes del ' + d.due + '</div>' : '') + '</div>' +
       (d.notes ? '<div class="p-notes"><b>Notas</b>' + d.notes + '</div>' : '') +
-      (d.kind === 'FACTURA' ? '<div class="p-pay"><div><b>Datos de pago</b>Banco: Banco del Bajío (ejemplo)<br>CLABE: 0123 2000 1234 5678 91<br>Transferencia a la CLABE indicada.</div><div class="qr">' + UI.qr(d.seed) + 'Escanea para copiar la CLABE</div></div>' : '') +
+      (d.kind === 'FACTURA' ? '<div class="p-pay"><div><b>Datos de pago</b>Banco: Tu banco (ejemplo)<br>CLABE: 0123 2000 1234 5678 91<br>Transferencia a la CLABE indicada.</div><div class="qr">' + UI.qr(d.seed) + 'Escanea para copiar la CLABE</div></div>' : '') +
       (d.accept ? '<div class="p-accept">' + UI.sig() + '<div class="line">Aceptación del cliente<br>' + d.client + '</div></div>' : '') +
       '<div class="p-foot"><div class="line">' + d.owner + '</div>Generado con Fakturo<br>Documento informativo. No es un CFDI timbrado ante el SAT.</div>' +
       '</div>';
